@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>CRUD Application</h1>
+    <div class="main_container">
+      <div class="app_wrapper">
+        <form action="">
+          <span>
+            <label for="">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              aria-required="true"
+              placeholder="Name of Product"
+            />
+          </span>
+          <span>
+            <label for="">Quantity</label>
+            <input
+              type="number"
+              name="quantity"
+              id="quantity"
+              aria-required="true"
+              placeholder="Product Quantity"
+            />
+          </span>
+          <span>
+            <label for="">Price</label>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              aria-required="true"
+              placeholder="Price Per Unit"
+            />
+          </span>
+          <span>
+            <label for="">Total Price</label>
+            <input
+              type="number"
+              name="total_price"
+              id="total_price"
+              aria-required="true"
+              placeholder="Total Price"
+            />
+          </span>
+        </form>
+        <div class="btns-group">
+          <button onclick="createItem()">Create Item</button>
+          <button onclick="readItem()">Read Item</button>
+          <button>Update Item</button>
+          <button>Delete Item</button>
+        </div>
+        <div class="table_wrapper">
+          <table>
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
