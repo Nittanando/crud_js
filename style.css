@@ -49,6 +49,13 @@ h1 {
   border: none;
   color: rgb(6, 6, 31);
   font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btns-group button:hover {
+  background-color: rgb(6, 6, 31);
+  border: 1px solid white;
+  color: white;
 }
 .table_wrapper {
   margin-top: 10px;
@@ -61,4 +68,8 @@ td {
   color: azure;
   border: 1px solid white;
   text-align: center;
+}
+
+td {
+  cursor: pointer;
 }

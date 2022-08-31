@@ -67,6 +67,7 @@ const createItem = () => {
     document.querySelector("#total_price").focus();
     return;
   }
+  window.location.reload();
 };
 
 // table-head function
@@ -111,6 +112,111 @@ const readItem = () => {
     if (table.rows.length < 1) {
       tableHead(storage);
       tableBody(storage);
+    }
+  } else {
+    return;
+  }
+};
+
+// making table row clickable for edit functionality
+
+table.onclick = () => {
+  let row = table.rows;
+  for (let i = 0; i < row.length; i++) {
+    row[i].addEventListener("click", activateItem);
+  }
+};
+
+// activate item function
+
+function activateItem() {
+  rowIndex = this.rowIndex;
+  let name = document.querySelector("#name");
+  let quantity = document.querySelector("#quantity");
+  let price = document.querySelector("#price");
+  let total_price = document.querySelector("#total_price");
+
+  name.value = this.cells[0].innerText;
+  quantity.value = this.cells[1].innerText;
+  price.value = this.cells[2].innerText;
+  total_price.value = this.cells[3].innerText;
+}
+
+// update item function
+
+const updateItem = () => {
+  const storage = JSON.parse(localStorage.getItem("productList"));
+  const name = document.querySelector("#name").value;
+  const quantity = document.querySelector("#quantity").value;
+  const price = document.querySelector("#price").value;
+  const total_price = document.querySelector("#total_price").value;
+  let tableRowIndex = rowIndex - 1;
+
+  // validation
+
+  if (tableRowIndex) {
+    if (name === "") {
+      alert("item name can not be empty");
+      document.querySelector("#name").focus();
+      return;
+    }
+
+    if (quantity === "") {
+      alert("item quantity can not be empty");
+      document.querySelector("#quantity").focus();
+      return;
+    }
+
+    if (price === "") {
+      alert("item price can not be empty");
+      document.querySelector("#price").focus();
+      return;
+    }
+
+    if (total_price === "") {
+      alert("item total amount can not be empty");
+      document.querySelector("#total_price").focus();
+      return;
+    }
+
+    let confirm = window.confirm(
+      "Are you sure, you want to update this item ?"
+    );
+
+    if (confirm === true) {
+      tableRowIndex &&
+        storage.splice(tableRowIndex, 1, {
+          name,
+          quantity,
+          price,
+          total_price,
+        });
+      localStorage.setItem("productList", JSON.stringify(storage));
+      console.log(storage);
+      window.alert("item list has been updated");
+      window.location.reload();
+    } else {
+      return;
+    }
+  } else {
+    return;
+  }
+};
+
+// delete function
+
+const deleteItem = () => {
+  let confirm = window.confirm("are you sure, you want to delete this item");
+  if (confirm === true) {
+    const storage = JSON.parse(localStorage.getItem("productList"));
+    let tableRowIndex = rowIndex - 1;
+    if (tableRowIndex) {
+      tableRowIndex && storage.splice(tableRowIndex, 1);
+      localStorage.setItem("productList", JSON.stringify(storage));
+      window.location.reload();
+      console.log(storage);
+    } else {
+      return;
     }
   } else {
     return;
