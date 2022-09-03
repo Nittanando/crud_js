@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(50, 12, 85);
+}
+h1 {
+  color: white;
+  text-align: center;
+  margin: 1rem;
+}
+.main_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.to_do_list {
+  margin: 10px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
