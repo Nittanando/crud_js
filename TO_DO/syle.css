@@ -20,7 +20,22 @@ h1 {
 .to_do_list {
   margin: 10px;
 }
+.to_do_list ul li {
+  display: flex;
+  justify-content: space-between;
+}
 a {
   text-decoration: none;
+  color: white;
+}
+
+.file-upload-demo {
+  margin-top: 2rem;
+  height: 200px;
+  width: 350px;
+  background: white;
+  padding: 1rem;
+}
+.file-item {
   color: white;
 }
