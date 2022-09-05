@@ -51,7 +51,7 @@ form button {
   border-bottom: 1px solid white;
 }
 .to_do_list ul li i {
-  display: none;
+  pointer-events: none;
 }
 a {
   text-decoration: none;

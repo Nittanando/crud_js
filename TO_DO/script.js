@@ -15,10 +15,10 @@ function addTodo(todo) {
 
   li.innerHTML = `
     
-    <span>${todo}</span>
+    <span class ='list-item-name'>${todo}</span>
             <span
-              ><button name="check">check<i class="bi bi-check-square"></i></button>
-              <button name="delete">delete<i class="bi bi-trash"></i></button>
+              ><button name="check"><i class="bi bi-check-square"></i></button>
+              <button name="delete"><i class="bi bi-trash"></i></button>
             </span>
     
     `;
@@ -40,7 +40,7 @@ function handleCheckDelete(e) {
 }
 
 function checkTodo(e) {
-  let item = e.target.parentNode;
+  let item = document.querySelector(".list-item-name");
   if (item.style.textDecoration == "line-through") {
     item.style.textDecoration = "none";
   } else {
@@ -48,4 +48,21 @@ function checkTodo(e) {
   }
 }
 
-function deleteTodo(e) {}
+function deleteTodo(e) {
+  // let item = document.querySelector(".list-item-name");
+  // let itemRemove = item.parentNode;
+  // itemRemove.remove();
+  let item = e.target.parentNode;
+  itemParent = item.parentNode;
+  itemParent.remove();
+}
+
+document.querySelector("#clearAll").addEventListener("click", deleteAll);
+
+function deleteAll() {
+  let confirm = window.confirm("are sure want to delete all the tasks ?");
+  if (confirm === true) {
+    let items = document.querySelector("li");
+    items.remove();
+  }
+}
