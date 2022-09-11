@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: aliceblue;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+td {
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+}
