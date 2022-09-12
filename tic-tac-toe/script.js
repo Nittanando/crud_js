@@ -1,10 +1,7 @@
 var originalBoard;
-// const nameOfPlayer = window.prompt("Provide your Name");
-// const iconForPlayer = window.alert(
-//   "Hello " +
-//     nameOfPlayer +
-//     " This is a Tic Tac Toe gaming Platform. If you think you are smart enough to win this game, Let's do it."
-// );
+window.alert(
+  "This is a Tic Tac Toe Game platform where you will play with the BOT. You are assigned the sign '0'. If you are smart enough, try and win the game. Thanks for playing"
+);
 const huPlayer = "0";
 const aiPlayer = "x";
 const winCombos = [
@@ -18,7 +15,6 @@ const winCombos = [
   [6, 4, 2],
 ];
 
-function starter() {}
 const cells = document.querySelectorAll("td");
 startGame();
 
@@ -96,7 +92,7 @@ function checkTie() {
 function minimax(newBoard, player) {
   var availSpots = emptySquares(newBoard);
 
-  if (checkWin(newBoard, player)) {
+  if (checkWin(newBoard, huPlayer)) {
     return { score: -10 };
   } else if (checkWin(newBoard, aiPlayer)) {
     return { score: 20 };
@@ -141,3 +137,5 @@ function minimax(newBoard, player) {
 
   return moves[bestMove];
 }
+// let header = document.querySelector("header");
+// console.log(header.offsetHeight);
